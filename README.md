@@ -1,2 +1,2 @@
 # example
-vue example
+vue base fami example
