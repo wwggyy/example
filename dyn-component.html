@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态组件与v-once指令</title>
+   <script src="./vue.js"></script>
+</head>
+<body>
+ <div id="root">
+    <p>v-once指令 会把修饰的div 存到内存中，下次调用时，直接从内存中取，提高渲染性能</p> 
+  <!--   <keep-alive>
+     <component :is="type"></component>
+   </keep-alive> -->
+    <child-one v-show="type==='child-one'" ></child-one>
+    <child-two v-show="type==='child-two'" ></child-two>
+    <button @click = "hanldeBtnClick">change</button>
+ </div>
+ <script>
+   Vue.component('child-one',{
+        data: function() {
+          return {
+           one: ''
+          }
+        },
+        
+        template: '<div v-once><input v-text="one"  /></div>',
+       
+
+   })
+   Vue.component('child-two',{
+        data: function() {
+          return {
+            two
+          }
+          
+        
+        },
+
+        template: '<div><input v-model="two"/>{{two}}</div>',
+      
+        
+   })
+
+   var vm = new Vue({
+     el: '#root',
+     data: {
+       type: 'child-one',
+     },
+     methods: {
+      hanldeBtnClick: function(){
+       this.type = this.type==='child-one'?'child-two':'child-one'
+      },
+    }
+     
+   })
+ </script>
+</body>
+</html>
