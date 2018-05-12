@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中使用animate.css库</title>
+   <script src="./vue.js"></script>
+   <link rel="stylesheet" type="text/css" href="./animate.css">
+   <style type="text/css">
+     
+     
+   </style>
+</head>
+<body>
+ <div id="root">
+   <transition name="fade"
+               enter-active-class="animated wobble"
+               leave-active-class="animated zoomOut">
+    <div v-show="show"> Hello </div>
+  </transition>
+    <button @click="showHandle">controller</button>
+    <p>
+      vue 默认的style前缀是v。 v-enter/v-enter-active
+
+    </p>
+ </div>
+ <script>
+  
+
+   var vm = new Vue({
+     el: '#root',
+     data: {
+      show: true,
+     },
+     methods: {
+      showHandle: function(){
+        this.show = !this.show;
+      }
+     }
+   })
+ </script>
+</body>
+</html>

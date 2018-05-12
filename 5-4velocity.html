@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中使用过渡与动画</title>
+   <script src="./vue.js"></script>
+   <link rel="stylesheet" type="text/css" href="./animate.css">
+   <style type="text/css">
+     .fade-enter,
+     .fade-leave-to {
+      opacity: 0;
+     }
+     .fade-enter-active,
+     .fade-leave-active {
+      transition: opacity 3s;
+     }
+   </style>
+</head>
+<body>
+ <div id="root">
+  <!--  <transition name="fade"
+               type="transition"
+               appear
+               enter-active-class="animated swing fade-enter-active"
+               leave-active-class="animated zoomOut fade-leave-active"
+               appear-active-class="animated swing"> -->
+      <transition name="fade"
+               :duration="{enter: 5000,leave: 3000}"
+               appear
+               enter-active-class="animated swing fade-enter-active"
+               leave-active-class="animated zoomOut fade-leave-active"
+               appear-active-class="animated swing">          
+    <div v-show="show"> Hello </div>
+  </transition>
+    <button @click="showHandle">controller</button>
+    <p>animate 提供是@keyframes形式过渡动画</p>
+    <p>css transition 动画 </p>
+ </div>
+ <script>
+  
+
+   var vm = new Vue({
+     el: '#root',
+     data: {
+      show: true,
+     },
+     methods: {
+      showHandle: function(){
+        this.show = !this.show;
+      }
+     }
+   })
+ </script>
+</body>
+</html>
