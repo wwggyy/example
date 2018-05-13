@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中多个元素或组件的过渡</title>
+   <script src="./vue.js"></script>
+   
+   <style type="text/css">
+     .fade-enter, .fade-leave-to {
+       opacity: 0;
+     }
+     .fade-enter-active, .fade-leave-active {
+       transition: opacity 1s;
+     }
+   </style>
+</head>
+<body>
+ <div id="root">
+   <transition name="fade"           
+   >         
+    <div v-if="show" key="hello"> Hello W </div>
+    <div v-else key="bye"> Bye world</div>
+  </transition>
+    <button @click="handleClick">controller</button>
+    <p>velocity </p>
+    
+ </div>
+ <script>
+  
+
+   var vm = new Vue({
+     el: '#root',
+     data: {
+      show: true,
+     },
+     methods: {
+      handleClick: function(){
+        this.show = !this.show;
+      },
+      
+     }
+   })
+ </script>
+</body>
+</html>
