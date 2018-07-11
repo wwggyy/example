@@ -11,25 +11,24 @@
         <div slot='header'>header</div>
         <div slot='footer'>
         	<p>footer</p>
-        	<router-link tag="ul" to="http://www.baidu.com">
+        	<router-link tag="ul" to="/city">
         		<li>a</li>
         		<li>b</li>
         	</router-link>
-        	<router-link tag="button" to="">xx
+        	<router-link tag="button" to="">xxx
         	</router-link>
         </div>
     </child>
    
  </div>
- <script>
+ <script type="text/ecmascript-6" scoped>
    Vue.component('child',{
-        template: '<div><slot name='header'></slot><div>Hello</div><slot name='footer'>默认内容</slot></div>',
+        template: '<div><slot name='header'></slot><div>Hello</div><slot name='footer'><a1>默认内容</a1></slot></div>',
    })
   
 
    var vm = new Vue({
-     el: '#root',
-
+    el: '#root'
    })
  </script>
 </body>
