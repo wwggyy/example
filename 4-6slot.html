@@ -9,7 +9,15 @@
  <div id="root">
     <child>
         <div slot='header'>header</div>
-        <div slot='footer'>footer</div>
+        <div slot='footer'>
+        	<p>footer</p>
+        	<router-link tag="ul" to="http://www.baidu.com">
+        		<li>a</li>
+        		<li>b</li>
+        	</router-link>
+        	<router-link tag="button" to="">xx
+        	</router-link>
+        </div>
     </child>
    
  </div>
